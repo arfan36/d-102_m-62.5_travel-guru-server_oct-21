@@ -16,6 +16,14 @@ app.get('/hotels', (req, res) => {
     res.send(hotels);
 });
 
+app.get('/hotels/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+
+    const hotel = hotels.find(ht => ht.id === id);
+    console.log('id, hotel :>> ', id, hotel);
+    res.send(hotel);
+});
+
 app.listen(port, () => {
     console.log(`Travel guru running on port, ${port}`);
 });
